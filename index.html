@@ -6,7 +6,7 @@
 <title>Today</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
 <style>
   html, body { margin: 0; height: 100%; background: #ffffff; }
   body {
@@ -14,20 +14,21 @@
     font-family: "Cormorant Garamond", Georgia, serif;
     overflow: hidden;
   }
-  .card { width: 100%; max-width: 1100px; padding: 18px 28px; box-sizing: border-box; text-align: center; }
+  .card { width: 100%; max-width: 900px; padding: 4px 16px; box-sizing: border-box; text-align: center; }
   .quote {
-    font-family: "Pinyon Script", "Snell Roundhand", cursive;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-style: italic;
     color: #B2002B;
-    line-height: 1.15;
+    line-height: 1.35;
     margin: 0;
-    font-size: 56px;
-    font-weight: 400;
+    font-size: 24px;
+    font-weight: 500;
   }
-  .rule { width: 64px; height: 1px; background: #DED2C3; margin: 14px auto 10px; }
+  .rule { width: 64px; height: 1px; background: #DED2C3; margin: 8px auto 6px; }
   .author {
     color: #604A4D;
-    font-size: 15px;
-    letter-spacing: 0.28em;
+    font-size: 11px;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
   }
 </style>
@@ -104,10 +105,10 @@ document.getElementById("a").textContent = author;
 // Shrink the lettering until the whole card fits the embed height.
 function fit() {
   const card = document.getElementById("card");
-  let size = Math.min(64, window.innerWidth / 9);
+  let size = window.innerWidth < 520 ? 19 : 24;
   q.style.fontSize = size + "px";
-  while (card.scrollHeight > window.innerHeight - 4 && size > 22) {
-    size -= 2;
+  while (card.scrollHeight > window.innerHeight - 4 && size > 15) {
+    size -= 1;
     q.style.fontSize = size + "px";
   }
 }
